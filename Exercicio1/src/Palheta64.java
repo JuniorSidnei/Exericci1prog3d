@@ -21,13 +21,15 @@ public class Palheta64
             0x555555, 0x5555FF, 0x55FF55, 0x55FFFF, 0xFF5555, 0xFF55FF, 0xFFFF55, 0xFFFFFF
     };
 
-    public double dist(Color c1, Color c2) {
-        double dr = c1.getRed() - c2.getRed();
-        double dg = c1.getGreen() - c2.getGreen();
-        double db = c1.getBlue() - c2.getBlue();
-        return Math.sqrt(dr*dr + dg*dg + db*db);
+    public double distancia(Color Cor1, Color Cor2)
+    {
+        double distRed = Cor1.getRed() - Cor2.getRed();
+        double distGreen = Cor1.getGreen() - Cor2.getGreen();
+        double distBlue = Cor1.getBlue() - Cor2.getBlue();
+        return Math.sqrt(distRed * distRed + distGreen * distGreen + distBlue * distBlue);
     }
-    public Color findClosest(Color color, int[] pallete) {
+    public Color findClosest(Color color, int[] pallete)
+    {
         Color closest = new Color(pallete[0]);
         double closestDistance = dist(color, closest);
 
