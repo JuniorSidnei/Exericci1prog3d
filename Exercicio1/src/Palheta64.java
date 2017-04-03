@@ -28,22 +28,24 @@ public class Palheta64
         double distBlue = Cor1.getBlue() - Cor2.getBlue();
         return Math.sqrt(distRed * distRed + distGreen * distGreen + distBlue * distBlue);
     }
-    public Color findClosest(Color color, int[] pallete)
+    public Color acharMaisPerto(Color color, int[] paleta)
     {
-        Color closest = new Color(pallete[0]);
-        double closestDistance = dist(color, closest);
+        Color menor = new Color(pallete[0]);
+        double menorDistancia = dist(color, menor);
 
-        for (int i = 1; i < pallete.length; i++) {
-            Color c = new Color(pallete[i]);
+        for (int i = 1; i < pallete.length; i++)
+        {
+            Color c = new Color(paleta[i]);
             double distance = dist(color, c);
             if (distance < closestDistance) {
-                closest = c;
-                closestDistance = distance;
+                menor = c;
+                menorDistancia = distance;
             }
         }
-        return closest;
+        return menor;
     }
-    public BufferedImage toPallete(BufferedImage in, int[] pallete) {
+    public BufferedImage toPallete(BufferedImage in, int[] pallete)
+    {
         BufferedImage out = new BufferedImage(in.getWidth(), in.getHeight(),
                 BufferedImage.TYPE_INT_RGB);
 
